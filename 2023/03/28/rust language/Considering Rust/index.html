@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v&#x3D;DnT-LUQgc7s这是关于Jon Gjengset的视频的笔记  为什么使用rust  rust的卖点  和Java&#x2F;Cpp&#x2F;Python的比较  rust的缺点: 缺少运行时意味着缺少运行时的反射，虽然可以使用GDB&#x2F;LLDB来监测运行时的行为，但是不方便。在运行时debugging时缺少探测辅助。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Considering Rust">
+<meta property="og:url" content="http://example.com/2023/03/28/rust%20language/Considering%20Rust/index.html">
+<meta property="og:site_name" content="Lez的技术博客">
+<meta property="og:description" content="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v&#x3D;DnT-LUQgc7s这是关于Jon Gjengset的视频的笔记  为什么使用rust  rust的卖点  和Java&#x2F;Cpp&#x2F;Python的比较  rust的缺点: 缺少运行时意味着缺少运行时的反射，虽然可以使用GDB&#x2F;LLDB来监测运行时的行为，但是不方便。在运行时debugging时缺少探测辅助。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-03-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-29T01:38:46.834Z">
+<meta property="article:author" content="Lez">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2023/03/28/rust%20language/Considering%20Rust/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-cn","comments":true,"permalink":"http://example.com/2023/03/28/rust%20language/Considering%20Rust/","path":"2023/03/28/rust language/Considering Rust/","title":"Considering Rust"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Considering Rust | Lez的技术博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Lez的技术博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#https-www-youtube-com-watch-v-DnT-LUQgc7s"><span class="nav-number">1.</span> <span class="nav-text">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v&#x3D;DnT-LUQgc7s</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Lez</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-cn">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/28/rust%20language/Considering%20Rust/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Lez">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lez的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Considering Rust | Lez的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Considering Rust
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-03-28 00:00:00" itemprop="dateCreated datePublished" datetime="2023-03-28T00:00:00+08:00">2023-03-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-29 09:38:46" itemprop="dateModified" datetime="2023-03-29T09:38:46+08:00">2023-03-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/rust-language/" itemprop="url" rel="index"><span itemprop="name">rust language</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="https-www-youtube-com-watch-v-DnT-LUQgc7s"><a href="#https-www-youtube-com-watch-v-DnT-LUQgc7s" class="headerlink" title="https://www.youtube.com/watch?v=DnT-LUQgc7s"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DnT-LUQgc7s">https://www.youtube.com/watch?v=DnT-LUQgc7s</a></h2><p>这是关于Jon Gjengset的视频的笔记</p>
+<ul>
+<li><p>为什么使用rust</p>
+</li>
+<li><p>rust的卖点</p>
+</li>
+<li><p>和Java&#x2F;Cpp&#x2F;Python的比较</p>
+</li>
+<li><p>rust的缺点:<br> 缺少运行时意味着缺少运行时的反射，虽然可以使用GDB&#x2F;LLDB来监测运行时的行为，但是不方便。在运行时debugging时缺少探测辅助。<br> 编译时间较长。Rust缺少预编译的二进制，譬如.so或.dll这种动态链接库。因为泛型函数的存在，当你的函数需要调用库的函数，而库函数是泛型的时候，需要从源码编译这个泛型函数所在的库。<br> 当需要使用外部非开源库时，写胶水代码是一个苦力活。<br>   有些开源的三方库只支持Linux&#x2F;OSX，对Win支持的寥寥，譬如异步库，需要和操作系统打交道的特定情况，这种支持比较缺乏。</p>
+</li>
+<li><p>长期生命力<br>  这种考虑源于我们在学习，采用一门新语言到项目中时对这门语言的生命力的考量。<br>  Rust是未来的一个很好的选择，原因如下</p>
+<ol>
+<li>程序员最喜爱的语言，Stackoverflow调查，持续四年。</li>
+<li>大公司采用的较多。Mozilla，Fb，Amazon， Goole，MS</li>
+<li>语言的可交互性好，可以渐进式的重写部分已存在项目的模块。</li>
+<li>语言峰会已持续10年以上，覆盖更多大城市，更多的开发者和对语言感兴趣的人的加入，社区的壮大。Rust的生态关注程序员体验，JG说他很愿意使用Rust来重写旧项目，这种感觉他在别的语言从未体验过。Rust编译器提供了更友好的提示信息，当程序员出现错误时，编译器像一个教练一样教你如何写出&#x2F;修改正确的代码。当大规模重构的时候Rust编译器更能够体现其优越的错误提示。</li>
+</ol>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/03/28/rust%20language/%E6%A8%A1%E5%9D%97%E5%92%8C%E4%BB%A3%E7%A0%81%E7%BB%84%E7%BB%87/" rel="prev" title="模块和代码组织">
+                  <i class="fa fa-chevron-left"></i> 模块和代码组织
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/03/28/linux/wsl2%E5%AE%89%E8%A3%85fedora37%E5%B9%B6%E5%BC%80%E5%90%AFGnome%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/" rel="next" title="wsl2安装fedora37并开启Gnome图形界面">
+                  wsl2安装fedora37并开启Gnome图形界面 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lez</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
