@@ -19,27 +19,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="sk 和fzf有点像，搞清楚区别ranger 很好zellij更好alacritty 终端工具ncspotzenith &#x2F;btm&#x2F;htop 类似 procs 看进程的cfont 玩字体的，很酷onefetch 统计代码库信息的neofetchtokei 统计代码量delta git的一种工具xplr 和ranger 很像nu 一种shelldtool 很实用的工具batbroo">
+    <meta name="description" content="WSL 侧 12345678rpm -qa|grep openssh-server # 查询sudo dnf install openssh-server # 安装(Optional): permit root login # 修改配置vi &#x2F;etc&#x2F;ssh_ssh_configPermitRootLogin yes Port xxxxsystemctl restart sshd # 重启生效">
 <meta property="og:type" content="article">
-<meta property="og:title" content="提高生产力的工具">
-<meta property="og:url" content="http://example.com/2023/03/29/%E7%94%9F%E4%BA%A7%E5%8A%9B%E4%B8%8E%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8/%E6%8F%90%E9%AB%98%E7%94%9F%E4%BA%A7%E5%8A%9B%E7%9A%84%E5%B7%A5%E5%85%B7/index.html">
+<meta property="og:title" content="暴露WSL2到局域网">
+<meta property="og:url" content="http://example.com/2023/04/20/linux/%E6%9A%B4%E9%9C%B2WSL2%E5%88%B0%E5%B1%80%E5%9F%9F%E7%BD%91/index.html">
 <meta property="og:site_name" content="Lez的技术博客">
-<meta property="og:description" content="sk 和fzf有点像，搞清楚区别ranger 很好zellij更好alacritty 终端工具ncspotzenith &#x2F;btm&#x2F;htop 类似 procs 看进程的cfont 玩字体的，很酷onefetch 统计代码库信息的neofetchtokei 统计代码量delta git的一种工具xplr 和ranger 很像nu 一种shelldtool 很实用的工具batbroo">
+<meta property="og:description" content="WSL 侧 12345678rpm -qa|grep openssh-server # 查询sudo dnf install openssh-server # 安装(Optional): permit root login # 修改配置vi &#x2F;etc&#x2F;ssh_ssh_configPermitRootLogin yes Port xxxxsystemctl restart sshd # 重启生效">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-03-29T01:03:14.000Z">
-<meta property="article:modified_time" content="2023-03-29T01:41:19.506Z">
+<meta property="article:published_time" content="2023-04-20T09:05:28.000Z">
+<meta property="article:modified_time" content="2023-04-20T09:07:27.531Z">
 <meta property="article:author" content="Lez">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2023/03/29/%E7%94%9F%E4%BA%A7%E5%8A%9B%E4%B8%8E%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8/%E6%8F%90%E9%AB%98%E7%94%9F%E4%BA%A7%E5%8A%9B%E7%9A%84%E5%B7%A5%E5%85%B7/">
+<link rel="canonical" href="http://example.com/2023/04/20/linux/%E6%9A%B4%E9%9C%B2WSL2%E5%88%B0%E5%B1%80%E5%9F%9F%E7%BD%91/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-cn","comments":true,"permalink":"http://example.com/2023/03/29/%E7%94%9F%E4%BA%A7%E5%8A%9B%E4%B8%8E%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8/%E6%8F%90%E9%AB%98%E7%94%9F%E4%BA%A7%E5%8A%9B%E7%9A%84%E5%B7%A5%E5%85%B7/","path":"2023/03/29/生产力与日常使用/提高生产力的工具/","title":"提高生产力的工具"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-cn","comments":true,"permalink":"http://example.com/2023/04/20/linux/%E6%9A%B4%E9%9C%B2WSL2%E5%88%B0%E5%B1%80%E5%9F%9F%E7%BD%91/","path":"2023/04/20/linux/暴露WSL2到局域网/","title":"暴露WSL2到局域网"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>提高生产力的工具 | Lez的技术博客</title>
+<title>暴露WSL2到局域网 | Lez的技术博客</title>
   
 
 
@@ -148,7 +148,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-cn">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/29/%E7%94%9F%E4%BA%A7%E5%8A%9B%E4%B8%8E%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8/%E6%8F%90%E9%AB%98%E7%94%9F%E4%BA%A7%E5%8A%9B%E7%9A%84%E5%B7%A5%E5%85%B7/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/20/linux/%E6%9A%B4%E9%9C%B2WSL2%E5%88%B0%E5%B1%80%E5%9F%9F%E7%BD%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -161,12 +161,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="提高生产力的工具 | Lez的技术博客">
+      <meta itemprop="name" content="暴露WSL2到局域网 | Lez的技术博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          提高生产力的工具
+          暴露WSL2到局域网
         </h1>
 
         <div class="post-meta-container">
@@ -178,16 +178,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-03-29 09:03:14 / Modified: 09:41:19" itemprop="dateCreated datePublished" datetime="2023-03-29T09:03:14+08:00">2023-03-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%94%9F%E4%BA%A7%E5%8A%9B%E4%B8%8E%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">生产力与日常使用</span></a>
-        </span>
+      <time title="Created: 2023-04-20 17:05:28 / Modified: 17:07:27" itemprop="dateCreated datePublished" datetime="2023-04-20T17:05:28+08:00">2023-04-20</time>
     </span>
 
   
@@ -200,8 +191,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>sk 和fzf有点像，搞清楚区别<br>ranger 很好<br>zellij更好<br>alacritty 终端工具<br>ncspot<br>zenith &#x2F;btm&#x2F;htop 类似</p>
-<p>procs 看进程的<br>cfont 玩字体的，很酷<br>onefetch 统计代码库信息的<br>neofetch<br>tokei 统计代码量<br>delta git的一种工具<br>xplr 和ranger 很像<br>nu 一种shell<br>dtool 很实用的工具<br>bat<br>broot<br>awesome- app tauri脚手架</p>
+        <p>WSL 侧</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa|grep openssh-server # 查询</span><br><span class="line">sudo dnf install openssh-server # 安装</span><br><span class="line"></span><br><span class="line">(Optional): permit root login # 修改配置</span><br><span class="line">vi /etc/ssh_ssh_config</span><br><span class="line">PermitRootLogin yes </span><br><span class="line">Port xxxx</span><br><span class="line">systemctl restart sshd # 重启生效</span><br></pre></td></tr></table></figure>
+
+<p>Windows 侧</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy add v4tov4 listenaddress=<span class="number">0.0</span>.<span class="number">0.0</span> listenport=<span class="variable">$proxy_port</span> connectaddress=<span class="variable">$wsl_ip</span> connectport=<span class="variable">$ssh_port</span> <span class="comment">#port forward</span></span><br><span class="line">netsh advfirewall firewall add rule name=”Open Port <span class="number">2222</span> <span class="keyword">for</span> WSL2” <span class="built_in">dir</span>=<span class="keyword">in</span> action=allow protocol=TCP localport=<span class="number">2222</span> <span class="comment"># open firewall for $proxy_port</span></span><br><span class="line">netsh interface portproxy show v4tov4 <span class="comment"># show command</span></span><br></pre></td></tr></table></figure>
+<p>添加公钥到WSL</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id -i pubkey -p port username@machine</span><br><span class="line"># port 是windows的proxy_port</span><br></pre></td></tr></table></figure>
+<p>添加ssh别名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host Ailas</span><br><span class="line">Hostname IPADDR</span><br><span class="line">Port port</span><br><span class="line">User login_user</span><br><span class="line">IdentityFile privatekey</span><br><span class="line"># 保存后 ssh alias 即可</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -215,14 +213,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/03/28/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E9%AD%94%E6%B3%95/" rel="prev" title="软件开发中的魔法">
-                  <i class="fa fa-chevron-left"></i> 软件开发中的魔法
+                <a href="/2023/04/20/Make%20Own%20Executable%20Packer/" rel="prev" title="Make Own Executable Packer">
+                  <i class="fa fa-chevron-left"></i> Make Own Executable Packer
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/03/29/%E7%94%9F%E4%BA%A7%E5%8A%9B%E4%B8%8E%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8/%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83/" rel="next" title="桌面环境">
-                  桌面环境 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

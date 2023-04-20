@@ -19,27 +19,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="sk 和fzf有点像，搞清楚区别ranger 很好zellij更好alacritty 终端工具ncspotzenith &#x2F;btm&#x2F;htop 类似 procs 看进程的cfont 玩字体的，很酷onefetch 统计代码库信息的neofetchtokei 统计代码量delta git的一种工具xplr 和ranger 很像nu 一种shelldtool 很实用的工具batbroo">
+    <meta name="description" content="记录下建站的过程:  hexo 生成静态站点 hexo init 博客的根目录跟踪的是博客仓库地址。 _post跟踪的是文章仓库地址_，这样不同机器只需要拉取最新文章即可在本地使用hexo g 生成静态页面。 配置博客主题，设置自动添加分类和一件部署ghpages config.yml 。 obsidian中设置模板，方便自动添加元数据，已设置快捷键ctrl+k。   [!NOTE1]    np">
 <meta property="og:type" content="article">
-<meta property="og:title" content="提高生产力的工具">
-<meta property="og:url" content="http://example.com/2023/03/29/%E7%94%9F%E4%BA%A7%E5%8A%9B%E4%B8%8E%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8/%E6%8F%90%E9%AB%98%E7%94%9F%E4%BA%A7%E5%8A%9B%E7%9A%84%E5%B7%A5%E5%85%B7/index.html">
+<meta property="og:title" content="博客建立和自动化部署">
+<meta property="og:url" content="http://example.com/2023/03/30/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%8B%E5%92%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/index.html">
 <meta property="og:site_name" content="Lez的技术博客">
-<meta property="og:description" content="sk 和fzf有点像，搞清楚区别ranger 很好zellij更好alacritty 终端工具ncspotzenith &#x2F;btm&#x2F;htop 类似 procs 看进程的cfont 玩字体的，很酷onefetch 统计代码库信息的neofetchtokei 统计代码量delta git的一种工具xplr 和ranger 很像nu 一种shelldtool 很实用的工具batbroo">
+<meta property="og:description" content="记录下建站的过程:  hexo 生成静态站点 hexo init 博客的根目录跟踪的是博客仓库地址。 _post跟踪的是文章仓库地址_，这样不同机器只需要拉取最新文章即可在本地使用hexo g 生成静态页面。 配置博客主题，设置自动添加分类和一件部署ghpages config.yml 。 obsidian中设置模板，方便自动添加元数据，已设置快捷键ctrl+k。   [!NOTE1]    np">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-03-29T01:03:14.000Z">
-<meta property="article:modified_time" content="2023-03-29T01:41:19.506Z">
+<meta property="article:published_time" content="2023-03-30T04:04:38.000Z">
+<meta property="article:modified_time" content="2023-04-08T04:02:43.082Z">
 <meta property="article:author" content="Lez">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2023/03/29/%E7%94%9F%E4%BA%A7%E5%8A%9B%E4%B8%8E%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8/%E6%8F%90%E9%AB%98%E7%94%9F%E4%BA%A7%E5%8A%9B%E7%9A%84%E5%B7%A5%E5%85%B7/">
+<link rel="canonical" href="http://example.com/2023/03/30/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%8B%E5%92%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-cn","comments":true,"permalink":"http://example.com/2023/03/29/%E7%94%9F%E4%BA%A7%E5%8A%9B%E4%B8%8E%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8/%E6%8F%90%E9%AB%98%E7%94%9F%E4%BA%A7%E5%8A%9B%E7%9A%84%E5%B7%A5%E5%85%B7/","path":"2023/03/29/生产力与日常使用/提高生产力的工具/","title":"提高生产力的工具"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-cn","comments":true,"permalink":"http://example.com/2023/03/30/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%8B%E5%92%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/","path":"2023/03/30/博客建立和自动化部署/","title":"博客建立和自动化部署"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>提高生产力的工具 | Lez的技术博客</title>
+<title>博客建立和自动化部署 | Lez的技术博客</title>
   
 
 
@@ -148,7 +148,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-cn">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/29/%E7%94%9F%E4%BA%A7%E5%8A%9B%E4%B8%8E%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8/%E6%8F%90%E9%AB%98%E7%94%9F%E4%BA%A7%E5%8A%9B%E7%9A%84%E5%B7%A5%E5%85%B7/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/30/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%8B%E5%92%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -161,12 +161,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="提高生产力的工具 | Lez的技术博客">
+      <meta itemprop="name" content="博客建立和自动化部署 | Lez的技术博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          提高生产力的工具
+          博客建立和自动化部署
         </h1>
 
         <div class="post-meta-container">
@@ -176,18 +176,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-03-29 09:03:14 / Modified: 09:41:19" itemprop="dateCreated datePublished" datetime="2023-03-29T09:03:14+08:00">2023-03-29</time>
+      <time title="Created: 2023-03-30 12:04:38" itemprop="dateCreated datePublished" datetime="2023-03-30T12:04:38+08:00">2023-03-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
+        <i class="far fa-calendar-check"></i>
       </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%94%9F%E4%BA%A7%E5%8A%9B%E4%B8%8E%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">生产力与日常使用</span></a>
-        </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-08 12:02:43" itemprop="dateModified" datetime="2023-04-08T12:02:43+08:00">2023-04-08</time>
     </span>
 
   
@@ -200,9 +197,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>sk 和fzf有点像，搞清楚区别<br>ranger 很好<br>zellij更好<br>alacritty 终端工具<br>ncspot<br>zenith &#x2F;btm&#x2F;htop 类似</p>
-<p>procs 看进程的<br>cfont 玩字体的，很酷<br>onefetch 统计代码库信息的<br>neofetch<br>tokei 统计代码量<br>delta git的一种工具<br>xplr 和ranger 很像<br>nu 一种shell<br>dtool 很实用的工具<br>bat<br>broot<br>awesome- app tauri脚手架</p>
-
+        <p>记录下建站的过程:</p>
+<ol>
+<li>hexo 生成静态站点 hexo init</li>
+<li>博客的根目录跟踪的是博客仓库地址。</li>
+<li>_post跟踪的是文章仓库地址_，这样不同机器只需要拉取最新文章即可在本地使用hexo g 生成静态页面。</li>
+<li>配置博客主题，设置自动添加分类和一件部署ghpages <em>config.yml</em> 。</li>
+<li>obsidian中设置模板，方便自动添加元数据，已设置快捷键ctrl+k。</li>
+</ol>
+<blockquote>
+<p>[!NOTE1]<br>    npm install –save 和–save-dev的区别是这个包安装是否仅和开发有关，还是它是程序运行所必须的依赖项。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo init blogname</span><br><span class="line">npm install hexo-auto-category</span><br><span class="line">npm install husky</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -215,13 +221,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/03/28/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E9%AD%94%E6%B3%95/" rel="prev" title="软件开发中的魔法">
-                  <i class="fa fa-chevron-left"></i> 软件开发中的魔法
+                <a href="/2023/03/29/rust%20language/pub%E5%85%B3%E9%94%AE%E5%AD%97/" rel="prev" title="pub关键字">
+                  <i class="fa fa-chevron-left"></i> pub关键字
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/03/29/%E7%94%9F%E4%BA%A7%E5%8A%9B%E4%B8%8E%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8/%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83/" rel="next" title="桌面环境">
-                  桌面环境 <i class="fa fa-chevron-right"></i>
+                <a href="/2023/04/08/linux/Linux%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%A4%8D%E4%B9%A0/" rel="next" title="Linux常用工具复习">
+                  Linux常用工具复习 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
