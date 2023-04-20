@@ -19,23 +19,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Lez的技术博客">
-<meta property="og:url" content="http://example.com/categories/PL/index.html">
+    <meta name="description" content="系统调用表https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Executable_and_Linkable_Format二进制分析系列https:&#x2F;&#x2F;manpages.debian.org&#x2F;unstable&#x2F;manpages&#x2F;vdso.7.en.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="syscall table">
+<meta property="og:url" content="http://example.com/2023/04/20/linux/syscall%20table/index.html">
 <meta property="og:site_name" content="Lez的技术博客">
+<meta property="og:description" content="系统调用表https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Executable_and_Linkable_Format二进制分析系列https:&#x2F;&#x2F;manpages.debian.org&#x2F;unstable&#x2F;manpages&#x2F;vdso.7.en.html">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-04-20T09:04:13.000Z">
+<meta property="article:modified_time" content="2023-04-20T09:19:46.146Z">
 <meta property="article:author" content="Lez">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/categories/PL/">
+<link rel="canonical" href="http://example.com/2023/04/20/linux/syscall%20table/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-cn","comments":"","permalink":"","path":"categories/PL/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-cn","comments":true,"permalink":"http://example.com/2023/04/20/linux/syscall%20table/","path":"2023/04/20/linux/syscall table/","title":"syscall table"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Category: PL | Lez的技术博客</title>
+<title>syscall table | Lez的技术博客</title>
   
 
 
@@ -117,7 +121,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span>
       </div>
   </nav>
@@ -133,50 +137,92 @@
 
     </div>
 
-    <div class="main-inner category posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">PL
-          <small>Category</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-cn">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/20/linux/syscall%20table/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Lez">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lez的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="syscall table | Lez的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          syscall table
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2023</span>
+
+      <time title="Created: 2023-04-20 17:04:13 / Modified: 17:19:46" itemprop="dateCreated datePublished" datetime="2023-04-20T17:04:13+08:00">2023-04-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><a target="_blank" rel="noopener" href="https://filippo.io/linux-syscall-table/">系统调用表</a><br><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Executable_and_Linkable_Format">https://en.wikipedia.org/wiki/Executable_and_Linkable_Format</a><br><a target="_blank" rel="noopener" href="https://fasterthanli.me/series/making-our-own-executable-packer/part-1">二进制分析系列</a><br><a target="_blank" rel="noopener" href="https://manpages.debian.org/unstable/manpages/vdso.7.en.html">https://manpages.debian.org/unstable/manpages/vdso.7.en.html</a></p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-04-13T18:18:14+08:00"
-              content="2023-04-13">
-          04-13
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/04/13/PL/GCC%E5%92%8CLLVM%E7%9A%84%E5%8C%BA%E5%88%AB/" itemprop="url">
-            <span itemprop="name">Untitled</span>
-          </a>
-      </div>
+    <footer class="post-footer">
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/04/20/Make%20Own%20Executable%20Packer/" rel="prev" title="Make Own Executable Packer">
+                  <i class="fa fa-chevron-left"></i> Make Own Executable Packer
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/04/20/PL/GCC%E5%92%8CLLVM%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="next" title="GCC和LLVM的区别">
+                  GCC和LLVM的区别 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
+
 
 </div>
   </main>
