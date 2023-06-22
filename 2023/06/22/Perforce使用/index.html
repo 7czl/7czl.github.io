@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="安装安装后会自动配好环境变量 p4v是图形化客户端， p4是命令行，wincmd 直接执行p4应该有输出。windows 默认安装位置在这里 C:\Program Files\Perforce\ p4的命令很多，这里只讲最重要的前面几项 登录：1234567891011121314151617181920212223242526272829303132p4 -u your_user_name lo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Perforce使用">
+<meta property="og:url" content="http://example.com/2023/06/22/Perforce%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Lez的技术博客">
+<meta property="og:description" content="安装安装后会自动配好环境变量 p4v是图形化客户端， p4是命令行，wincmd 直接执行p4应该有输出。windows 默认安装位置在这里 C:\Program Files\Perforce\ p4的命令很多，这里只讲最重要的前面几项 登录：1234567891011121314151617181920212223242526272829303132p4 -u your_user_name lo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-22T08:07:12.000Z">
+<meta property="article:modified_time" content="2023-06-22T09:01:18.586Z">
+<meta property="article:author" content="Lez">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2023/06/22/Perforce%E4%BD%BF%E7%94%A8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-cn","comments":true,"permalink":"http://example.com/2023/06/22/Perforce%E4%BD%BF%E7%94%A8/","path":"2023/06/22/Perforce使用/","title":"Perforce使用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Perforce使用 | Lez的技术博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Lez的技术博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%99%BB%E5%BD%95%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">登录：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%9B%AE%E5%BD%95%E5%86%85%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">3.</span> <span class="nav-text">配置目录内的环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5%E5%89%96%E6%9E%90"><span class="nav-number">4.</span> <span class="nav-text">概念剖析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%EF%BC%9A"><span class="nav-number">5.</span> <span class="nav-text">忽略文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%AD%E6%8D%AE"><span class="nav-number">6.</span> <span class="nav-text">凭据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">7.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UE-%E5%BC%95%E6%93%8E%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEP4%E4%B8%BAVCS"><span class="nav-number">8.</span> <span class="nav-text">UE 引擎如何配置P4为VCS</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Lez</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-cn">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/22/Perforce%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Lez">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lez的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Perforce使用 | Lez的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Perforce使用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-06-22 16:07:12 / Modified: 17:01:18" itemprop="dateCreated datePublished" datetime="2023-06-22T16:07:12+08:00">2023-06-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a><a target="_blank" rel="noopener" href="https://www.perforce.com/products/helix-core/install-helix-core-server-client#tab-panel-43016">安装</a></h2><p>安装后会自动配好环境变量 p4v是图形化客户端， p4是命令行，wincmd 直接执行p4应该有输出。<br>windows 默认安装位置在这里 C:\Program Files\Perforce\</p>
+<p>p4的命令很多，这里只讲最重要的前面几项</p>
+<h2 id="登录："><a href="#登录：" class="headerlink" title="登录："></a>登录：</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">p4 <span class="literal">-u</span> your_user_name login <span class="literal">-h</span> remote_address:port  <span class="comment"># 登录</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p4 client <span class="literal">-S</span> //JamCode/main/... //workspacename/... [<span class="type">workspacename</span>] </span><br><span class="line"><span class="comment"># 映射工作区 -S 指 stream 就是远程分支的路径一般都以//开始 workspace是工作区的名字，这一项可选，但最好赋予一个你能记住的名字，</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Windows 注意要修改根目录，这个根目录的位置由你自己决定, </span></span><br><span class="line"><span class="comment"># 比如盘符:\子文件夹1\子文件夹2 这个位置可以任意指定</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#### 也可以映射多个服务器的目录到一个工作区内</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#To map the same server directory to more than one client workspace directory, use the &amp; sign.</span></span><br><span class="line">//depot/... //bruno<span class="literal">-client</span>/...  </span><br><span class="line">&amp;//depot/and/tools/... //workspacename/and/utility1/...  </span><br><span class="line">&amp;//depot/and/tools/... //workspacename/and/utility2/...</span><br><span class="line"></span><br><span class="line">To specify a workspace on Windows that spans multiple drives, use a `Root:` of `null`, and specify the drive letters <span class="keyword">in</span> the workspace view. <span class="keyword">For</span> instance, the following workspace spec with a `null` root maps `//depot/main/...` to an area of the `C:` drive, and other releases to the `D:` drive:</span><br><span class="line"></span><br><span class="line">这个windows下一个工作空间对应多个映射的例子值得看看</span><br><span class="line">Client: eds_win</span><br><span class="line">Owner:  edk</span><br><span class="line">Description:</span><br><span class="line">        Ed<span class="string">&#x27;s Windows Workspace</span></span><br><span class="line"><span class="string">Root:   null</span></span><br><span class="line"><span class="string">Options:        nomodtime noclobber</span></span><br><span class="line"><span class="string">SubmitOptions:  submitunchanged</span></span><br><span class="line"><span class="string">View:</span></span><br><span class="line"><span class="string">        //depot/main/...     &quot;//eds_win/c:/Current Release/...&quot;</span></span><br><span class="line"><span class="string">        //depot/rel1.0/...   //eds_win/d:/old/rel1.0/...</span></span><br><span class="line"><span class="string">        //depot/rel2.0/...   //eds_win/d:/old/rel2.0/...</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="配置目录内的环境变量"><a href="#配置目录内的环境变量" class="headerlink" title="配置目录内的环境变量"></a>配置目录内的环境变量</h2><p>在你的工作区目录建立一个p4config.txt 比如 我这里使用 G:\Game1<br>这样我在这个文件夹内使用p4 命令时会自动读取这个位置文件内的环境变量，比较方便。</p>
+<figure class="highlight txt"><figcaption><span>p4config.txt</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">P4USER=your_user_name</span><br><span class="line">P4HOST=your_computer_name</span><br><span class="line">P4CLIENT=your_workspace_name</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p4 sync <span class="comment">#同步到本地</span></span><br></pre></td></tr></table></figure>
+
+<p>p4和git还是有很大区别的。文件不检出就只能以只读形式打开。签出后即可你的工作区删改。</p>
+<p><a target="_blank" rel="noopener" href="https://www.perforce.com/manuals/cmdref/Content/CmdRef/p4_edit.html">P4命令</a></p>
+<h2 id="概念剖析"><a href="#概念剖析" class="headerlink" title="概念剖析"></a>概念剖析</h2><p>下文中的工作空间和客户端是同一含义，故不再做区分。<br>这个是我用super 用户在服务端上显示工作空间的输出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@lucid-node-2 ~]# p4 clients</span><br><span class="line">Client Crpg_TJ 2022/06/22 root J:\Unreal Projects\Crpg_TJ &#x27;Created by liyi. &#x27;</span><br><span class="line">Client Crpg_game_luhao 2022/06/19 root G:\Crpg_demo &#x27;Created by luhao. &#x27;</span><br><span class="line">Client DevBranch 2022/06/22 root /Users/lezhou/Perforce/DevBranch &#x27;Created by zhoule. &#x27;</span><br><span class="line">Client G:\GameProject\ 2023/06/21 root c:\Users\win10\.cargo\bin &#x27;Created by zuojiaqi. &#x27;</span><br><span class="line">Client Nemesis 2023/06/21 root c:\Users\win10\.cargo\bin &#x27;Created by zuojiaqi. &#x27;</span><br><span class="line">Client luhao_tvpn_1299 2022/06/24 root D:\Crpg_TJ_demo &#x27;Created by luhao. &#x27;</span><br><span class="line">Client luhao_tvpn_2932 2022/06/19 root D:\Crpg_game &#x27;Created by luhao. &#x27;</span><br><span class="line">Client luhao_tvpn_950 2022/06/24 root D:\Crpg_TJ_demo &#x27;Created by luhao. &#x27;</span><br><span class="line">Client yuanrui_tvpn_275 2023/06/17 root D:\PerForceProject &#x27;Created by yuanrui. &#x27;</span><br><span class="line">Client yuanrui_tvpn_3145 2023/06/19 root D:\yuanrui_tvpn_3145 &#x27;Created by yuanrui. &#x27;</span><br></pre></td></tr></table></figure>
+<p>p4 client&#x2F;workspaces得到的输出相同，它们在含义上是等价的。这是服务端和客户端的映射，Client后每一项的含义：<br>|名字（工作空间的）| 创建时间 | 根位置（根位置就是本地路径）| 创建者<br>这是在客户端使用p4 client 映射本地工作空间的输出。值得注意的是Root Stream还有StreamView三项</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">p4 client -S //JamCode/main bugfree</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">A Perforce Client Specification.</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"><span class="comment">#  Client:      The client name.</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> Update:      The <span class="built_in">date</span> this specification was last modified.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> Access:      The <span class="built_in">date</span> this client was last used <span class="keyword">in</span> any way.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> Owner:       The Perforce user name of the user <span class="built_in">who</span> owns the client</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">              workspace. The default is the user <span class="built_in">who</span> created the</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">              client workspace.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> Host:        If <span class="built_in">set</span>, restricts access to the named host.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> Description: A short description of the client (optional).</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> Root:        The base directory of the client workspace.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> AltRoots:    Up to two alternate client workspace roots.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> Options:     Client options:</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">                     [no]allwrite [no]clobber [no]compress</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">                     [un]locked [no]modtime [no]<span class="built_in">rmdir</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> SubmitOptions:</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">                     submitunchanged/submitunchanged+reopen</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">                     revertunchanged/revertunchanged+reopen</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">                     leaveunchanged/leaveunchanged+reopen</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> LineEnd:     Text file line endings on client: <span class="built_in">local</span>/unix/mac/win/share.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> Type:        Type of client: writeable/readonly/graph/partitioned.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> ServerID:    If <span class="built_in">set</span>, restricts access to the named server.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> View:        Lines to map depot files into the client workspace.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> ChangeView:  Lines to restrict depot files to specific changelists.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> Stream:      The stream to <span class="built_in">which</span> this client<span class="string">&#x27;s view will be dedicated.</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">              (Files in stream paths can be submitted only by dedicated</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">              stream clients.) When this optional field is set, the</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">              View field will be automatically replaced by a stream</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">              view as the client spec is saved.</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string"> StreamAtChange:  A changelist number that sets a back-in-time view of a</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">                  stream ( Stream field is required ).</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">                  Changes cannot be submitted when this field is set.</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="string"></span></span></span><br><span class="line"><span class="string"><span class="language-bash"># Use &#x27;</span>p4 <span class="built_in">help</span> client<span class="string">&#x27; to see more about client views and options.</span></span></span><br><span class="line"></span><br><span class="line">Client:	bugfree </span><br><span class="line"></span><br><span class="line">Update:	2023/06/21 21:09:52</span><br><span class="line"></span><br><span class="line">Access:	2023/06/21 21:09:32</span><br><span class="line"></span><br><span class="line">Owner:	zuojiaqi</span><br><span class="line"></span><br><span class="line">Host:	Nemesis 主机名也很重要，你在哪个主机上用哪个用户打开的这个工作区是受到限制的</span><br><span class="line"></span><br><span class="line">Description:</span><br><span class="line">	Created by zuojiaqi.</span><br><span class="line"></span><br><span class="line">Root:	G:\GameProject</span><br><span class="line"></span><br><span class="line">Options:	noallwrite noclobber nocompress unlocked nomodtime normdir</span><br><span class="line"></span><br><span class="line">SubmitOptions:	submitunchanged</span><br><span class="line"></span><br><span class="line">LineEnd:	local</span><br><span class="line"></span><br><span class="line">Stream:	//JamCode/main</span><br><span class="line"></span><br><span class="line">View:</span><br><span class="line">	//JamCode/main/... //bugfree/...</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.perforce.com/manuals/cmdref/Content/CmdRef/p4_client.html#p4_client">p4client详细阅读</a></p>
+<h2 id="忽略文件："><a href="#忽略文件：" class="headerlink" title="忽略文件："></a>忽略文件：</h2><p>项目路径下添加.p4ignore.txt去掉中间目录和debug信息。UE4编译时生成的中间文件是不需要用vcs跟踪的。<br><a target="_blank" rel="noopener" href="https://hastebin.com/share/vuyegesisa.markdown">抄来的适合UE的ignorefile</a>可直接打开<br><a target="_blank" rel="noopener" href="https://github.com/sonstraza/Unreal-P4Ignore/blob/main/Perforce%20Ignore%20Guide.pdf">p4ignoreguide</a></p>
+<h2 id="凭据"><a href="#凭据" class="headerlink" title="凭据"></a>凭据</h2><p>p4ticket有效时限12小时，这个应该可以在服务器段变更。同时这个用户管理也可以和LDAP集成。</p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">p4 add/ delete 增加删除</span><br><span class="line">p4 edit filename 编辑文件/ 签出并编辑</span><br><span class="line">p4 shelve -c changelist_number  # 对未提交的changelist在服务器端创建一个shelve区，允许其他人对这个shelve的变更引用到他们的工作区</span><br><span class="line">p4 changelist -d &quot;变更描述&quot;</span><br><span class="line">add/edit /delete 都反应在一个changelist中</span><br><span class="line">p4 submit -c changelist_number</span><br><span class="line">p4 revert</span><br></pre></td></tr></table></figure>
+
+<h2 id="UE-引擎如何配置P4为VCS"><a href="#UE-引擎如何配置P4为VCS" class="headerlink" title="UE 引擎如何配置P4为VCS"></a>UE 引擎如何配置P4为VCS</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/547763516">补充阅读</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/06/21/linux/The%20Missing%20semester/" rel="prev" title="The Missing semester">
+                  <i class="fa fa-chevron-left"></i> The Missing semester
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/06/22/2023-06-22/" rel="next" title="">
+                   <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lez</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
